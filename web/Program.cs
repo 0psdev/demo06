@@ -4,11 +4,12 @@ using web.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 var backend = "http://localhost:5179";
-Uri convertedUri = new Uri(backend);
+var url = Uri.TryCreate(backend, UriKind, out Uri)
+//Uri convertedUri = new Uri(backend);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient<IWeatherForecastService, WeatherForecastService>(c => c.BaseAddress = new Uri("convertedUri"));
+builder.Services.AddHttpClient<IWeatherForecastService, WeatherForecastService>(c => c.BaseAddress = new Uri("url"));
 
 var app = builder.Build();
 
