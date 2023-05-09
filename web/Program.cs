@@ -3,11 +3,10 @@ using web.Services;
 using web.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
-var backendurl = Environment.GetEnvironmentVariable("backendserver");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddHttpClient<IWeatherForecastService, WeatherForecastService>(c => c.BaseAddress = new Uri("backendurl"));
+builder.Services.AddHttpClient<IWeatherForecastService, WeatherForecastService>(c => c.BaseAddress = new Uri("http://api:6699"));
 
 var app = builder.Build();
 
