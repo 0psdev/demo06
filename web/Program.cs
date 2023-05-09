@@ -4,7 +4,7 @@ using web.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 var backend = "http://localhost:5179";
-var url = Uri.TryCreate(backend, UriKind, out Uri)
+var url = Uri.TryCreate(backend, UriKind, out Uri);
 //Uri convertedUri = new Uri(backend);
 
 // Add services to the container.
